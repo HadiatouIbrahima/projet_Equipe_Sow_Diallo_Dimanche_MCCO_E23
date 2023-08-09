@@ -9,6 +9,5 @@ public class RunTest {
 		// Initialisation du projet
 		Initialisation init = new Initialisation();
 
-
 	}
 }
