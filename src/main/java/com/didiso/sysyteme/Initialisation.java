@@ -131,7 +131,6 @@ public class Initialisation {
 				 }
 		 
 		 
-		 
 				 //Disciplines
 				 
 				 //String idDisc, String nomDisc, double nbHBudget, String dateDebutDisc, String dateFinDisc
@@ -461,7 +460,6 @@ public class Initialisation {
         	System.out.println("Statut de connexion : "+ admin.isEstConnecte());
         }
         	
-        
         
         
 		//Projet
