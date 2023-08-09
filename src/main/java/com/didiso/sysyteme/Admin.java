@@ -13,7 +13,6 @@ public class Admin {
 	private boolean estConnecte;
 	private boolean estActif;
 	
-	
 	/**
 	 * Constructeur sans arguments
 	 */
