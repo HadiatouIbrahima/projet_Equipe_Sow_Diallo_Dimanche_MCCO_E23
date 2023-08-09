@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="projet_Equipe_Sow_Diallo_Dimanche_MCCO_E23" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="projet_Equipe_Dimanche_Diallo_Sow_MCCO_E23 2" target="1.5" />
+      <module name="projet_Equipe_Sow_Diallo_Dimanche_MCCO_E23" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
