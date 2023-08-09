@@ -14,7 +14,6 @@ public class Admin {
 	private boolean estActif;
 	
 	
-	
 	/**
 	 * Constructeur sans arguments
 	 */
