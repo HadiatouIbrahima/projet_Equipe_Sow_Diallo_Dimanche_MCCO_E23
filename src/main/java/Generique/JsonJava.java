@@ -54,9 +54,6 @@ public class JsonJava {
 	    return jsonObject;
 	}
 
-	
-
-
 	// M�thode pour convertir un tableau en JSON
 	public static JSONObject convertirTableauEnJson(Object tableau, String[] cles) {
 	    JSONObject jsonObject = new JSONObject();
@@ -73,9 +70,6 @@ public class JsonJava {
 	    return jsonObject;
 	}
 
-
-   
-    
     // M�thode pour obtenir les informations sur les attributs d'une classe
     public static List<InfoClasse> recupererInfoAttributClasse(Class<?> clazz) {
         List<InfoClasse> attributeInfoList = new ArrayList<>();
@@ -172,11 +166,6 @@ public class JsonJava {
     }
 
 
-
-
-
-     
-
     // M�thode qui convertit la valeur du JSON vers le type de l'attribut
     private static Object convertirVersType(Object value, Class<?> type) {
         // conversions sp�cifiques pour les types que vous souhaitez g�rer
@@ -222,8 +211,7 @@ public class JsonJava {
 
 
 
-    
-   
+       
     
 }
 
