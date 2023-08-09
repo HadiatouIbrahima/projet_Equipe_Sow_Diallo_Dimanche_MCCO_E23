@@ -22,6 +22,7 @@ public class Projet {
 	/**
 	 * 
 	 */
+	
 	public Projet() {
 		super();
 	}
@@ -32,6 +33,7 @@ public class Projet {
 	 * @param dateFinProj
 	 * @param nbHeureBudgProj
 	 */
+	
 	public Projet(String idProj, String nomProj, String dateDebProj, String dateFinProj, int nbHeureBudgProj) {
 		super();
 		this.idProj = idProj;
@@ -43,54 +45,63 @@ public class Projet {
 	/**
 	 * @return the idProj
 	 */
+	
 	public String getIdProj() {
 		return idProj;
 	}
 	/**
 	 * @param idProj the idProj to set
 	 */
+	
 	public void setIdProj(String idProj) {
 		this.idProj = idProj;
 	}
 	/**
 	 * @return the nomProj
 	 */
+	
 	public String getNomProj() {
 		return nomProj;
 	}
 	/**
 	 * @param nomProj the nomProj to set
 	 */
+	
 	public void setNomProj(String nomProj) {
 		this.nomProj = nomProj;
 	}
 	/**
 	 * @return the dateDebProj
 	 */
+	
 	public String getDateDebProj() {
 		return dateDebProj;
 	}
 	/**
 	 * @param dateDebProj the dateDebProj to set
 	 */
+	
 	public void setDateDebProj(String dateDebProj) {
 		this.dateDebProj = dateDebProj;
 	}
 	/**
 	 * @return the dateFinProj
 	 */
+	
 	public String getDateFinProj() {
 		return dateFinProj;
 	}
 	/**
 	 * @param dateFinProj the dateFinProj to set
 	 */
+	
 	public void setDateFinProj(String dateFinProj) {
 		this.dateFinProj = dateFinProj;
 	}
 	/**
 	 * @return the nbHeureBudgProj
 	 */
+	
 	public int getNbHeureBudgProj() {
 		return nbHeureBudgProj;
 	}
