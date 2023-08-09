@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import Generique.JsonJava;
 
 
+
 public class Projet {
 	
 	private String idProj;
@@ -142,6 +143,7 @@ public class Projet {
 				+ ", estActif=" + estActif + ", disciplineProjet=" + disciplineProjet + "]";
 	}
 	
+
 	
 	public static boolean estDanslaBaseDonneeProj(String idProjCherche, List<Projet> listeProj){
 		boolean trouve=false;
@@ -301,6 +303,7 @@ public class Projet {
 		}
 		return nbH;
 	}
+	
 	
 	public double calculerAvancementProj() {
 		double nbH = calculerNbHeureTravProj();
