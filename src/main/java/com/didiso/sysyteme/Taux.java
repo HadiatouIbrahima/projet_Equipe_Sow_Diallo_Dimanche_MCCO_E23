@@ -16,7 +16,6 @@ public class Taux {
 	
 	
 	
-	
 
 	/**
 	 * 
@@ -124,7 +123,7 @@ public class Taux {
 			listeTx.add(this);
 			JsonJava.convertirListeEnJson(listeTx);
 		}else {
-			JOptionPane.showMessageDialog(null, "Ce projet est dÈj‡ dans la base de donnÈe", "Info", JOptionPane.CLOSED_OPTION);
+			JOptionPane.showMessageDialog(null, "Ce projet est d√©j√† dans la base de donn√©e", "Info", JOptionPane.CLOSED_OPTION);
 		}
 	}
 	
