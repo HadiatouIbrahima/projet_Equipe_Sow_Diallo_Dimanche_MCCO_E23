@@ -185,13 +185,12 @@ public class Projet {
 
 	}
 	
-	
 	public void ajouterProj(List<Projet> listeProj) {
 		if(!estDanslaBaseDonneeProj(this.idProj, listeProj)) {
 			listeProj.add(this);
 			JsonJava.convertirListeEnJson(listeProj);
 		}else {
-			JOptionPane.showMessageDialog(null, "Ce projet est dÈj‡ dans la base de donnÈe", "Info", JOptionPane.CLOSED_OPTION);
+			JOptionPane.showMessageDialog(null, "Ce projet est d√©j√† dans la base de donn√©e", "Info", JOptionPane.CLOSED_OPTION);
 		}
 	}
 
@@ -216,7 +215,7 @@ public class Projet {
 		for (i=0; i<listeProj.size(); i++) {
 			if((listeProj.get(i).getIdProj()==idProjAmodifier)&&conditionArret) {
 				positionProjCherche=i;
-				System.out.println("Projet ‡ modifier = "+listeProj.get(positionProjCherche));
+				System.out.println("Projet √† modifier = "+listeProj.get(positionProjCherche));
 				//trouve=true;
 				conditionArret=false;
 			}
