@@ -194,7 +194,6 @@ public class Projet {
 		}
 	}
 
-	
 	public static void supprimerProjet(String idProjAsupprimer, List<Projet> listeProj) {
 		//int position=chercherPositionProjTrouve(idProjAsupprimer, listeProj);
 		if(estDanslaBaseDonneeProj(idProjAsupprimer, listeProj)) {
