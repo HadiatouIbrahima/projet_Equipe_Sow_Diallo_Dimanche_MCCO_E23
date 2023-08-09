@@ -101,7 +101,6 @@ public class Initialisation {
 			 }
 			 
 			 
-			 
 			 //Projet
 			 //(String idProj, String nomProj, String dateDebProj, String dateFinProj, int nbHeureBudgProj)
 		 
