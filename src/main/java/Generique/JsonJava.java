@@ -117,14 +117,16 @@ public class JsonJava {
         return listeJson;
     }
     
-    
+
+	
  // M�thode g�n�rique qui prend un objet JSON et renvoie un objet de type T
    
     public static <T> T convertirJsonVersObjet(JSONObject jsonObject, Class<T> classe) throws IllegalAccessException, InstantiationException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         T objet = classe.getDeclaredConstructor().newInstance();
 
         // R�cup�rer les attributs de la classe
-        List<InfoClasse> attributeInfoList = recupererInfoAttributClasse(classe);
+       
+	List<InfoClasse> attributeInfoList = recupererInfoAttributClasse(classe);
 
         // Parcourir les attributs et assigner les valeurs � l'objet
         for (InfoClasse attributeInfo : attributeInfoList) {
