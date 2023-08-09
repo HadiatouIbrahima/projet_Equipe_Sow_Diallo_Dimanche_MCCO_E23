@@ -490,24 +490,6 @@ public class Employe {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public double calculerSalaire(Date dateDebut, Date dateFin) {
 	    double salaireTotal = 0.0;
 
@@ -559,7 +541,6 @@ public class Employe {
         }
         return null;
     }
-    
     
     
     public static Date parseDate(String dateString) {
