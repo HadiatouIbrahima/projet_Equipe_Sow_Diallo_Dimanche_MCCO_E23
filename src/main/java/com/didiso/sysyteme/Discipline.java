@@ -69,7 +69,6 @@ public class Discipline {
 		return nomDisc;
 	}
 
-
 	/**
 	 * @param nomDisc the nomDisc to set
 	 */
@@ -258,7 +257,7 @@ public class Discipline {
 			listeDisc.add(this);
 			JsonJava.convertirListeEnJson(listeDisc);
 		}else {
-			JOptionPane.showMessageDialog(null, "Ce projet est dÈj‡ dans la base de donnÈe", "Info", JOptionPane.CLOSED_OPTION);
+			JOptionPane.showMessageDialog(null, "Ce projet est d√©j√† dans la base de donn√©e", "Info", JOptionPane.CLOSED_OPTION);
 		}
 	}
 
@@ -283,7 +282,7 @@ public class Discipline {
 		for (i=0; i<listeDisc.size(); i++) {
 			if((listeDisc.get(i).getIdDisc()==nouvDisc.getIdDisc())&&conditionArret) {
 				positionDiscCherche=i;
-				System.out.println("Employe ‡ modifier = "+listeDisc.get(positionDiscCherche));
+				System.out.println("Employe √† modifier = "+listeDisc.get(positionDiscCherche));
 				//trouve=true;
 				conditionArret=false;
 			}
@@ -305,7 +304,7 @@ public class Discipline {
 		if(estDanslaBaseDonneeDisc(nouvDisc.getIdDisc(), listeDisc)) {
 			int positionDiscAmodifier=chercherPositionDiscTrouve(nouvDisc.getIdDisc(), listeDisc);
 			Discipline discAmodifier=listeDisc.get(positionDiscAmodifier);
-			if(discAmodifier.getIdDisc().equals(nouvDisc.getIdDisc())){  //Pour Èviter de modifier l'ID
+			if(discAmodifier.getIdDisc().equals(nouvDisc.getIdDisc())){  //Pour √©viter de modifier l'ID
 				
 				if(!discAmodifier.getNomDisc().equals(nouvDisc.getNomDisc())){
 					discAmodifier.setNomDisc(nouvDisc.getNomDisc());
