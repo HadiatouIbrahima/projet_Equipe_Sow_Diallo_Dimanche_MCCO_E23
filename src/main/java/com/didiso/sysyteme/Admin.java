@@ -31,6 +31,7 @@ public class Admin {
 	 * @param estConnecte
 	 * @param estActif
 	 */
+	
 	public Admin(String idAdmin, String nomAdmin, String nasAdmin, String nomUtilisateur, String motDePasse,
 			String statut) {
 		super();
@@ -72,6 +73,7 @@ public class Admin {
 	/**
 	 * @param nomAdmin the nomAdmin to set
 	 */
+	
 	public void setNomAdmin(String nomAdmin) {
 		this.nomAdmin = nomAdmin;
 	}
@@ -120,6 +122,7 @@ public class Admin {
 	/**
 	 * @param motDePasse the motDePasse to set
 	 */
+	
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
@@ -128,6 +131,7 @@ public class Admin {
 	/**
 	 * @return the statut
 	 */
+	
 	public String getStatut() {
 		return statut;
 	}
@@ -136,6 +140,7 @@ public class Admin {
 	/**
 	 * @param statut the statut to set
 	 */
+	
 	public void setStatut(String statut) {
 		this.statut = statut;
 	}
@@ -144,6 +149,7 @@ public class Admin {
 	/**
 	 * @return the estConnecte
 	 */
+	
 	public boolean isEstConnecte() {
 		return estConnecte;
 	}
@@ -152,6 +158,7 @@ public class Admin {
 	/**
 	 * @param estConnecte the estConnecte to set
 	 */
+	
 	public void setEstConnecte(boolean estConnecte) {
 		this.estConnecte = estConnecte;
 	}
@@ -160,6 +167,7 @@ public class Admin {
 	/**
 	 * @return the estActif
 	 */
+	
 	public boolean isEstActif() {
 		return estActif;
 	}
@@ -168,12 +176,14 @@ public class Admin {
 	/**
 	 * @param estActif the estActif to set
 	 */
+	
 	public void setEstActif(boolean estActif) {
 		this.estActif = estActif;
 	}
 
 
 	@Override
+	
 	public String toString() {
 		return "Admin [idAdmin=" + idAdmin + ", nomAdmin=" + nomAdmin + ", nasAdmin=" + nasAdmin + ", nomUtilisateur="
 				+ nomUtilisateur + ", motDePasse=" + motDePasse + ", statut=" + statut + ", estConnecte=" + estConnecte
