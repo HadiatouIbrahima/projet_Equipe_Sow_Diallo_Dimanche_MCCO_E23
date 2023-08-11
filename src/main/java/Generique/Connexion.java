@@ -3,15 +3,14 @@ package Generique;
 public class Connexion {
 	
 
-	
 /*
 
     public static void main(String[] args) {
-        // Créez des exemples d'employés, projets et disciplines
+        // CrÃ©ez des exemples d'employÃ©s, projets et disciplines
         Employe employe1 = new Employe("john", "password123", "Actif");
-        // ... créez d'autres employés, projets et disciplines
+        // ... crÃ©ez d'autres employÃ©s, projets et disciplines
         
-        // Créez une liste de projets et disciplines pour l'exemple
+        // CrÃ©ez une liste de projets et disciplines pour l'exemple
         List<Projet> listeProjets = ...; // Remplacez par votre liste de projets
         List<Discipline> listeDisciplines = ...; // Remplacez par votre liste de disciplines
         
@@ -37,22 +36,22 @@ public class Connexion {
         String motDePasse = scanner.nextLine();
         
         if (nomUtilisateur.equals(employe.getNomUtilisateur()) && motDePasse.equals(employe.getMotDePasse())) {
-            System.out.println("Connexion réussie !");
+            System.out.println("Connexion rÃ©ussie !");
             return true;
         } else {
-            System.out.println("Échec de la connexion !");
+            System.out.println("Ã‰chec de la connexion !");
             return false;
         }
     }
 
     public static Projet choisirProjet(List<Projet> listeProjets) {
-        // Affichez la liste des projets et demandez à l'utilisateur de choisir
+        // Affichez la liste des projets et demandez Ã  l'utilisateur de choisir
         // Retournez le projet choisi ou null en cas d'annulation
     }
 
     public static Discipline choisirDiscipline(Projet projet, List<Discipline> listeDisciplines) {
         // Affichez la liste des disciplines du projet choisi
-        // Demandez à l'utilisateur de choisir une discipline
+        // Demandez Ã  l'utilisateur de choisir une discipline
         // Retournez la discipline choisie ou null en cas d'annulation
     }
 
@@ -60,21 +59,21 @@ public class Connexion {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         Date dateDebut = new Date();
         
-        System.out.println("Début du travail enregistré le " + dateFormat.format(dateDebut));
-        // Enregistrez le début du travail dans la base de données ou autre
+        System.out.println("DÃ©but du travail enregistrÃ© le " + dateFormat.format(dateDebut));
+        // Enregistrez le dÃ©but du travail dans la base de donnÃ©es ou autre
     }
 
     public static void seDeconnecter() {
-        System.out.println("Déconnexion réussie !");
+        System.out.println("DÃ©connexion rÃ©ussie !");
     }
 
     public static void enregistrerFinTravail(Employe employe, Discipline discipline) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         Date dateFin = new Date();
         
-        System.out.println("Fin du travail enregistrée le " + dateFormat.format(dateFin));
+        System.out.println("Fin du travail enregistrÃ©e le " + dateFormat.format(dateFin));
         
-        // Calculez le temps effectué et enregistrez-le dans la base de données ou autre
+        // Calculez le temps effectuÃ© et enregistrez-le dans la base de donnÃ©es ou autre
     }
 }
 

@@ -41,6 +41,6 @@ public class InfoClasse {
 		return "InfoClasse [nomAttribut=" + nomAttribut + ", typeAttibut=" + typeAttibut + "]";
 	}
 
-    
 
+	
 }
