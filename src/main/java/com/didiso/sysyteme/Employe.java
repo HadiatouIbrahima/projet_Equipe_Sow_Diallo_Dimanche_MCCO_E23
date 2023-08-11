@@ -1,14 +1,16 @@
 package com.didiso.sysyteme;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
-
 import Generique.JsonJava;
+
 /*
 import Generique.Discipline;
 import Generique.Employe;
@@ -35,7 +37,7 @@ public class Employe {
 	private boolean estActif;
 	private boolean estConnecte;
 	/**
-	 * 
+	 *
 	 */
 	public Employe() {
 		super();
@@ -52,7 +54,7 @@ public class Employe {
 	 * @param statut
 	 */
 	public Employe(String idEmpl, String nasEmpl, String nomEmpl, String dateEmbEmpl, String dateDepartEmpl,
-			String poste, String nomUtilisateur, String motDePasse, String statut) {
+				   String poste, String nomUtilisateur, String motDePasse, String statut) {
 		super();
 		this.idEmpl = idEmpl;
 		this.nasEmpl = nasEmpl;
@@ -65,10 +67,8 @@ public class Employe {
 		this.statut = statut;
 		this.estActif=true;
 		this.estConnecte=false;
-		/*if(this.listeProjetAtt.size()<=2) {
-			this.listeProjetAtt=null;
-		}*/
-		
+
+
 	}
 	/**
 	 * @return the idEmpl
@@ -208,6 +208,7 @@ public class Employe {
 	public List<Projet> getListeProjetAtt() {
 		return listeProjetAtt;
 	}
+
 	/**
 	 * @param listeProjetAtt the listeProjetAtt to set
 	 */
@@ -250,10 +251,10 @@ public class Employe {
 	public void setEstConnecte(boolean estConnecte) {
 		this.estConnecte = estConnecte;
 	}
-	
-	
-	
-	
+
+
+
+
 	/**
 	 * @return the listePointage
 	 */
@@ -266,18 +267,18 @@ public class Employe {
 	public void setListePointage(List<Pointage> listePointage) {
 		this.listePointage = listePointage;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "Employe [idEmpl=" + idEmpl + ", nasEmpl=" + nasEmpl + ", nomEmpl=" + nomEmpl + ", dateEmbEmpl="
-				+ dateEmbEmpl + ", dateDepartEmpl=" + dateDepartEmpl + ", tauxNormEmpl=" + tauxNormEmpl + ", tauxSupp="
-				+ tauxSupp + ", listePointage=" + listePointage + ", poste=" + poste + ", nomUtilisateur="
-				+ nomUtilisateur + ", motDePasse=" + motDePasse + ", statut=" + statut + ", listeProjetAtt="
-				+ listeProjetAtt + ", listeDiscAttr=" + listeDiscAttr + ", estActif=" + estActif + ", estConnecte="
+				+ dateEmbEmpl + ", dateDepartEmpl=" + dateDepartEmpl + /*", tauxNormEmpl=" + tauxNormEmpl + ", tauxSupp="
+				+ tauxSupp + ", listePointage=" + listePointage + */", poste=" + poste + ", nomUtilisateur="
+				+ nomUtilisateur + ", motDePasse=" + motDePasse + ", statut=" + statut /*+ ", listeProjetAtt="
+				+ listeProjetAtt + ", listeDiscAttr=" + listeDiscAttr */+ ", estActif=" + estActif + ", estConnecte="
 				+ estConnecte + "]";
 	}
 	public static boolean estDanslaBaseDonneeEmpl(String idEmplCherche, List<Employe> listeEmpl){
@@ -290,7 +291,7 @@ public class Employe {
 		}
 		return trouve;
 	}
-	
+
 	public static int chercherPositionEmplTrouve(String idEmplCherche, List<Employe> listeEmpl){
 		if(estDanslaBaseDonneeEmpl( idEmplCherche, listeEmpl)) {
 			for (int i=0; i<listeEmpl.size(); i++) {
@@ -301,10 +302,10 @@ public class Employe {
 		}
 		return -1;
 	}
-	
-	
+
+
 	public static Employe  trouverEmpl(String idEmplCherche, List<Employe> listeEmpl) {
-		Employe empl=new Employe();	
+		Employe empl=new Employe();
 		boolean arret=true;
 		for (int i=0; i<listeEmpl.size(); i++) {
 			System.out.println(listeEmpl.get(i).getIdEmpl());
@@ -313,26 +314,26 @@ public class Employe {
 				arret=false;
 				empl=listeEmpl.get(i);
 				System.out.println(listeEmpl.get(i).toString());
-				
+
 			}else {
-				
+
 			}
 		}
 		return empl;
 
 	}
-	
-	
+
+
 	public void ajouterEmpl(List<Employe> listeEmpl) {
 		if(!estDanslaBaseDonneeEmpl(this.idEmpl, listeEmpl)) {
 			listeEmpl.add(this);
 			JsonJava.convertirListeEnJson(listeEmpl);
 		}else {
-			JOptionPane.showMessageDialog(null, "Ce projet est deja dans la base de donnee", "Info", JOptionPane.CLOSED_OPTION);
+			JOptionPane.showMessageDialog(null, "Ce projet est d�j� dans la base de donn�e", "Info", JOptionPane.CLOSED_OPTION);
 		}
 	}
 
-	
+
 	public static void supprimerEmploye(String idEmplAsupprimer, List<Employe> listeEmpl) {
 		//int position=chercherPositionProjTrouve(idProjAsupprimer, listeProj);
 		if(estDanslaBaseDonneeEmpl(idEmplAsupprimer, listeEmpl)) {
@@ -342,8 +343,8 @@ public class Employe {
 		}
 	}
 
-	
-	
+
+
 	public static Employe modifierEmpl(List<Employe> listeEmpl, Employe nouvEmpl) {
 		//int j=-1;
 		int i;
@@ -359,25 +360,25 @@ public class Employe {
 			}
 
 		}
-		
+
 		/*
 		 *
-	
+
 	private String nomEmpl;
 	private String dateDepartEmpl;
 	private String poste;
 	private String nomUtilisateur;
 		 */
-		
+
 		if(estDanslaBaseDonneeEmpl(nouvEmpl.getIdEmpl(), listeEmpl)) {
 			int positionEmplAmodifier=chercherPositionEmplTrouve(nouvEmpl.getIdEmpl(), listeEmpl);
 			Employe emplAmodifier=listeEmpl.get(positionEmplAmodifier);
 			if(emplAmodifier.getIdEmpl().equals(nouvEmpl.getIdEmpl())){  //Pour �viter de modifier l'ID
-				
+
 				if(!emplAmodifier.getNomEmpl().equals(nouvEmpl.getNomEmpl())){
 					emplAmodifier.setNomEmpl(nouvEmpl.getNomEmpl());
 				}
-				
+
 				if(!emplAmodifier.getDateDepartEmpl().equals(nouvEmpl.getDateDepartEmpl())){
 					emplAmodifier.setDateDepartEmpl(nouvEmpl.getDateDepartEmpl());
 				}
@@ -389,7 +390,7 @@ public class Employe {
 				}
 				listeEmpl.set(positionEmplCherche, nouvEmpl);
 				System.out.println("nouvelle liste : "+listeEmpl.toString());
-				
+
 				JsonJava.convertirListeEnJson(listeEmpl);
 				return nouvEmpl;
 			}else {
@@ -397,81 +398,81 @@ public class Employe {
 				return emplAmodifier;
 			}
 		}
-		
+
 		return nouvEmpl;
-		
+
 	}
-	
+
 	/*
-	
+
 	private List<Taux> tauxNormEmpl;
 	private List<Taux> tauxSupp;
 	private List<Pointage> listePointage;
 	private List<Projet >listeProjetAtt;
 	private List<Discipline> listeDiscAttr;
 	 */
-	
+
 	public void ajouterTauxNormEmpl(Taux taux) {
 		if(!Taux.estDanslaBaseDonneeTaux(taux.getIdTx(), this.tauxNormEmpl)) {
 			this.tauxNormEmpl.add(taux);
 		}
 	}
-	
+
 	public void ajouterTauxSuppEmpl(Taux taux) {
 		if(!Taux.estDanslaBaseDonneeTaux(taux.getIdTx(), this.tauxSupp)) {
 			this.tauxSupp.add(taux);
 		}
 	}
-	
-	
+
+
 	public void ajouterPointEmpl(Pointage pointage) {
 		if(!Pointage.estDanslaBaseDonneePoint(pointage.getIdPoint() , this.listePointage)) {
-		this.listePointage.add(pointage);
+			this.listePointage.add(pointage);
 		}
 	}
-	
+
 	public Employe DesactiverEmploye() {
 		this.setEstActif(false);
 		return this;
 	}
-	
-	
+
+
 	public void ajouterProjEmpl(Projet proj) {
 		if(!Projet.estDanslaBaseDonneeProj(proj.getIdProj() , this.listeProjetAtt)) {
-		this.listeProjetAtt.add(proj);
+			this.listeProjetAtt.add(proj);
 		}
 	}
-	
+
 	public void retirerProjetEmpl(Projet proj) {
 		int positionAsupprimer = Projet.chercherPositionProjTrouve(proj.getIdProj(), this.listeProjetAtt);
-	    if (positionAsupprimer != -1) {
-	    	this.getListeProjetAtt().remove(positionAsupprimer);
-	        //creerListeDiscJson(liste);
-	    }
-	}
-	
-	
-	public void ajouterDiscEmpl(Discipline disc) {
-		if(!Discipline.estDanslaBaseDonneeDisc(disc.getIdDisc() , this.listeDiscAttr)) {
-		this.listeDiscAttr.add(disc);
+		if (positionAsupprimer != -1) {
+			this.getListeProjetAtt().remove(positionAsupprimer);
+			//creerListeDiscJson(liste);
 		}
 	}
-	
+
+
+	public void ajouterDiscEmpl(Discipline disc) {
+		if(!Discipline.estDanslaBaseDonneeDisc(disc.getIdDisc() , this.listeDiscAttr)) {
+			this.listeDiscAttr.add(disc);
+		}
+	}
+
 	/*
 	public Projet DesactiverProjet() {
 		this.setEstActif(false);
 		return this;
 	}
 	*/
-	
+
 	public void retirerDiscEmpl(Discipline disc) {
 		int positionAsupprimer = Discipline.chercherPositionDiscTrouve(disc.getIdDisc(), this.listeDiscAttr);
-	    if (positionAsupprimer != -1) {
-	    	this.listeDiscAttr.remove(positionAsupprimer);
-	        //creerListeDiscJson(liste);
-	    }
+		if (positionAsupprimer != -1) {
+			this.listeDiscAttr.remove(positionAsupprimer);
+			//creerListeDiscJson(liste);
+		}
 	}
-	
+
 	/*
 	public double calculerNbHeureTravProj() {
 		double nbH =0;
@@ -481,100 +482,113 @@ public class Employe {
 		}
 		return nbH;
 	}
-	
+
 	public double calculerAvancementProj() {
 		double nbH = calculerNbHeureTravProj();
 		double avancementProj = nbH/this.getNbHeureBudgProj();
 		return avancementProj;
 	}
 	*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public double calculerSalaire(Date dateDebut, Date dateFin) {
-	    double salaireTotal = 0.0;
 
-	    // Parcours des pointages pour la p�riode donn�e
-	    for (Pointage pointage : this.listePointage) {
-	        Date datePointage = pointage.getDatePointage();
 
-	        // V�rification si le pointage est dans la p�riode
-	        if (datePointage.compareTo(dateDebut) >= 0 && datePointage.compareTo(dateFin) <= 0) {
-	            Taux tauxApplicable = trouverTauxApplicable(datePointage);
-	            if (tauxApplicable != null) {
-	                double montantHoraire = tauxApplicable.getTauxH();
-	                double heuresTravaillees = pointage.getNbTotal();
+	public void executerCreationEmploye() {
+		//Bail bail=new Bail(idBail, numUnite, typeUnite, dateEntree, dateSortie, assurance, remisage, locataire, renouvelable, stationnement, montantLoyer);
+		List<Employe> listeEmpl = new ArrayList<>();
+		List<Employe> listeEmplchargee = null;
 
-	                // Calcul des heures normales et suppl�mentaires
-	                double heuresNormales = Math.min(heuresTravaillees, 8.0);
-	                double heuresSupplementaires = Math.max(heuresTravaillees - 8.0, 0.0);
+		try {
+			listeEmplchargee=JsonJava.chargerBDDListe(listeEmpl, "com.didiso.sysyteme.Employe.json", Employe.class);
+		} catch (IOException | ParseException e1) {
 
-	                // Recherche du taux de suppl�ment applicable
-	                Taux tauxSuppApplicable = trouverTauxSuppApplicable(datePointage);
-	                double montantSupp = tauxSuppApplicable.getTauxH();
+			e1.printStackTrace();
+		}
 
-	                // Calcul du salaire pour les heures normales et suppl�mentaires
-	                double salairePartiel = (montantHoraire * heuresNormales) + (montantSupp * heuresSupplementaires);
-	                salaireTotal += salairePartiel;
-	            }
-	        }
-	    }
-
-	    return salaireTotal;
+		this.ajouterEmpl(listeEmpl);
 	}
 
 
-    public Taux trouverTauxApplicable(Date date) {
-        for (Taux taux : this.tauxNormEmpl) {
-            if (date.compareTo(parseDate(taux.getDateDebutTx())) >= 0 && date.compareTo(parseDate(taux.getDateFinTx())) <= 0) {
-                return taux;
-            }
-        }
-        return null;
-    }
 
-    
-    public Taux trouverTauxSuppApplicable(Date date) {
-        for (Taux taux : this.tauxSupp) {
-            if (date.compareTo(parseDate(taux.getDateDebutTx())) >= 0 && date.compareTo(parseDate(taux.getDateFinTx())) <= 0) {
-                return taux;
-            }
-        }
-        return null;
-    }
-    
-    
-    
-    public static Date parseDate(String dateString) {
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            return sdf.parse(dateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-		
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public double calculerSalaire(Date dateDebut, Date dateFin) {
+		double salaireTotal = 0.0;
+
+		// Parcours des pointages pour la p�riode donn�e
+		for (Pointage pointage : this.listePointage) {
+			Date datePointage = pointage.getDatePointage();
+
+			// V�rification si le pointage est dans la p�riode
+			if (datePointage.compareTo(dateDebut) >= 0 && datePointage.compareTo(dateFin) <= 0) {
+				Taux tauxApplicable = trouverTauxApplicable(datePointage);
+				if (tauxApplicable != null) {
+					double montantHoraire = tauxApplicable.getTauxH();
+					double heuresTravaillees = pointage.getNbTotal();
+
+					// Calcul des heures normales et suppl�mentaires
+					double heuresNormales = Math.min(heuresTravaillees, 8.0);
+					double heuresSupplementaires = Math.max(heuresTravaillees - 8.0, 0.0);
+
+					// Recherche du taux de suppl�ment applicable
+					Taux tauxSuppApplicable = trouverTauxSuppApplicable(datePointage);
+					double montantSupp = tauxSuppApplicable.getTauxH();
+
+					// Calcul du salaire pour les heures normales et suppl�mentaires
+					double salairePartiel = (montantHoraire * heuresNormales) + (montantSupp * heuresSupplementaires);
+					salaireTotal += salairePartiel;
+				}
+			}
+		}
+
+		return salaireTotal;
+	}
+
+
+	public Taux trouverTauxApplicable(Date date) {
+		for (Taux taux : this.tauxNormEmpl) {
+			if (date.compareTo(parseDate(taux.getDateDebutTx())) >= 0 && date.compareTo(parseDate(taux.getDateFinTx())) <= 0) {
+				return taux;
+			}
+		}
+		return null;
+	}
+
+
+	public Taux trouverTauxSuppApplicable(Date date) {
+		for (Taux taux : this.tauxSupp) {
+			if (date.compareTo(parseDate(taux.getDateDebutTx())) >= 0 && date.compareTo(parseDate(taux.getDateFinTx())) <= 0) {
+				return taux;
+			}
+		}
+		return null;
+	}
+
+
+
+	public static Date parseDate(String dateString) {
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			return sdf.parse(dateString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+
     /*
  // Effectuez la connexion
     if (verifierInfosConnexion(employe1)) {
@@ -599,9 +613,9 @@ public boolean verifierInfosConnexion() {
     String motDePasse = scanner.nextLine();
     System.out.println("Statut : ");
     String statut = scanner.nextLine();
-    
-    if (nomUtilisateur.equals(this.getNomUtilisateur()) 
-    		&& motDePasse.equals(this.getMotDePasse()) 
+
+    if (nomUtilisateur.equals(this.getNomUtilisateur())
+    		&& motDePasse.equals(this.getMotDePasse())
     		&& statut.equals(this.getStatut())) {
         System.out.println("Connexion r�ussie !");
         return true;
@@ -627,7 +641,7 @@ public static Discipline choisirDiscipline(Projet projet, List<Discipline> liste
 public static void enregistrerDebutTravail(Employe employe, Discipline discipline) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     Date dateDebut = new Date();
-    
+
     System.out.println("D�but du travail enregistr� le " + dateFormat.format(dateDebut));
     // Enregistrez le d�but du travail dans la base de donn�es ou autre
 }
@@ -639,13 +653,13 @@ public static void seDeconnecter() {
 public static void enregistrerFinTravail(Employe employe, Discipline discipline) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
     Date dateFin = new Date();
-    
+
     System.out.println("Fin du travail enregistr�e le " + dateFormat.format(dateFin));
-    
+
     // Calculez le temps effectu� et enregistrez-le dans la base de donn�es ou autre
 }
 
-	
+
 	*/
 
 }

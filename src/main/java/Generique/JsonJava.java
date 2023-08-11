@@ -95,7 +95,7 @@ public class JsonJava {
         JSONArray listeJson = new JSONArray();
         String nomBDD = null;
         String nomFichier = listeObjets.get(0).getClass().getName() + ".json";
-        System.err.println("Nom de fichier : "+nomFichier);
+        //System.err.println("Nom de fichier : "+nomFichier);
         if(!listeObjets.isEmpty()) {
         	nomBDD = "Base de donnees " + listeObjets.get(0).getClass().getName();
         }
@@ -112,9 +112,9 @@ public class JsonJava {
         String cheminFichier = System.getProperty("user.home") + "/Desktop/" + nomFichier;
         try (FileWriter file = new FileWriter(cheminFichier)) {
         
-        	System.err.println("Enregistrement commenc�");
+        	//System.err.println("Enregistrement commence");
 			file.write(bddJson.toJSONString()); 
-			System.err.println("Enregistrement r�ussi");
+			//System.err.println("Enregistrement reussi");
 			
 			file.flush();
 		} catch (IOException e) {

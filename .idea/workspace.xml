@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2f4202d-e911-4112-822a-7fa7af79b7bb" name="Changes" comment="" />
+    <list default="true" id="f2f4202d-e911-4112-822a-7fa7af79b7bb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Generique/JsonJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Generique/JsonJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Discipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Discipline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Employe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Employe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Initialisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Initialisation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Projet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/didiso/sysyteme/Projet.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -21,6 +31,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2Tkj3hKQSKRSePdwa2o9krvusEo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,8 +42,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/hadiatouibrahimadiallo/Desktop/projet_Equipe_Dimanche_Diallo_Sow_MCCO_E23 2",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
@@ -66,11 +77,22 @@
       <updated>1691593776387</updated>
       <workItem from="1691593778832" duration="55000" />
       <workItem from="1691593922483" duration="17000" />
-      <workItem from="1691594012525" duration="2824000" />
+      <workItem from="1691594012525" duration="27144000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

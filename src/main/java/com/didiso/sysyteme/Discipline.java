@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 import Generique.JsonJava;
 
 public class Discipline {
-	
+
 	private String idDisc;
 	private String nomDisc;
 	private double nbHBudget;
@@ -19,10 +19,10 @@ public class Discipline {
 	private boolean estActif;
 	private List<Employe> listeEmplSurDisc;
 	//private List<Discipline> disciplines;
-	
-	
+
+
 	/**
-	 * 
+	 *
 	 */
 	public Discipline() {
 	}
@@ -177,14 +177,14 @@ public class Discipline {
 	/**
 	 * @return the disciplines
 	 */
-	
+
 
 
 	/**
 	 * @param disciplines the disciplines to set
 	 */
 	//public void setDisciplines(List<Discipline> disciplines) {
-		//this.disciplines = disciplines;
+	//this.disciplines = disciplines;
 	//}
 
 
@@ -212,12 +212,20 @@ public class Discipline {
 		}
 		return trouve;
 	}
-	
+
+
+	public String toString2() {
+		return "Discipline [idDisc=" + idDisc + ", nomDisc=" + nomDisc + ", nbHBudget=" + nbHBudget + ", nbHTrav="
+				+ nbHTrav + ", dateDebutDisc=" + dateDebutDisc + ", dateFinDisc=" + dateFinDisc + ", estActif="
+				+ estActif + ", listeEmplSurDisc=" + listeEmplSurDisc + "]";
+	}
+
+
 	@Override
 	public String toString() {
 		return "Discipline [idDisc=" + idDisc + ", nomDisc=" + nomDisc + ", nbHBudget=" + nbHBudget + ", nbHTrav="
 				+ nbHTrav + ", dateDebutDisc=" + dateDebutDisc + ", dateFinDisc=" + dateFinDisc + ", estActif="
-				+ estActif + ", listeEmplSurDisc=" + listeEmplSurDisc + "]";
+				+ estActif +/* ", listeEmplSurDisc=" + listeEmplSurDisc +*/ "]";
 	}
 
 
@@ -231,10 +239,10 @@ public class Discipline {
 		}
 		return -1;
 	}
-	
-	
+
+
 	public static Discipline  trouverDisc(String idDiscCherche, List<Discipline> listeDisc) {
-		Discipline disc=new Discipline();	
+		Discipline disc=new Discipline();
 		boolean arret=true;
 		for (int i=0; i<listeDisc.size(); i++) {
 			System.out.println(listeDisc.get(i).getIdDisc());
@@ -243,26 +251,26 @@ public class Discipline {
 				arret=false;
 				disc=listeDisc.get(i);
 				System.out.println(listeDisc.get(i).toString());
-				
+
 			}else {
-				
+
 			}
 		}
 		return disc;
 
 	}
-	
-	
+
+
 	public void ajouterDisc(List<Discipline> listeDisc) {
 		if(!estDanslaBaseDonneeDisc(this.idDisc, listeDisc)) {
 			listeDisc.add(this);
 			JsonJava.convertirListeEnJson(listeDisc);
 		}else {
-			JOptionPane.showMessageDialog(null, "Ce projet est déjà dans la base de donnée", "Info", JOptionPane.CLOSED_OPTION);
+			JOptionPane.showMessageDialog(null, "Ce projet est dï¿½jï¿½ dans la base de donnï¿½e", "Info", JOptionPane.CLOSED_OPTION);
 		}
 	}
 
-	
+
 	public static void supprimerDisc(String idDiscAsupprimer, List<Discipline> listeDisc) {
 		//int position=chercherPositionProjTrouve(idProjAsupprimer, listeProj);
 		if(estDanslaBaseDonneeDisc(idDiscAsupprimer, listeDisc)) {
@@ -272,8 +280,8 @@ public class Discipline {
 		}
 	}
 
-	
-	
+
+
 	public static Discipline modifierDisc(List<Discipline> listeDisc, Discipline nouvDisc) {
 		//int j=-1;
 		int i;
@@ -283,44 +291,44 @@ public class Discipline {
 		for (i=0; i<listeDisc.size(); i++) {
 			if((listeDisc.get(i).getIdDisc()==nouvDisc.getIdDisc())&&conditionArret) {
 				positionDiscCherche=i;
-				System.out.println("Employe à modifier = "+listeDisc.get(positionDiscCherche));
+				System.out.println("Employe ï¿½ modifier = "+listeDisc.get(positionDiscCherche));
 				//trouve=true;
 				conditionArret=false;
 			}
 
 		}
-		
+
 		/*
 		 *
-	
+
 	/*
 	 *
 	private String nomDisc;
 	private double nbHBudget;
 	private String dateFinDisc;
-	
+
 	 */
-		 
-		
+
+
 		if(estDanslaBaseDonneeDisc(nouvDisc.getIdDisc(), listeDisc)) {
 			int positionDiscAmodifier=chercherPositionDiscTrouve(nouvDisc.getIdDisc(), listeDisc);
 			Discipline discAmodifier=listeDisc.get(positionDiscAmodifier);
-			if(discAmodifier.getIdDisc().equals(nouvDisc.getIdDisc())){  //Pour éviter de modifier l'ID
-				
+			if(discAmodifier.getIdDisc().equals(nouvDisc.getIdDisc())){  //Pour ï¿½viter de modifier l'ID
+
 				if(!discAmodifier.getNomDisc().equals(nouvDisc.getNomDisc())){
 					discAmodifier.setNomDisc(nouvDisc.getNomDisc());
 				}
-				
+
 				if(discAmodifier.getNbHBudget()!=(nouvDisc.getNbHBudget())){
 					discAmodifier.setNbHBudget(nouvDisc.getNbHBudget());
 				}
 				if(discAmodifier.getDateFinDisc()!=(nouvDisc.getDateFinDisc())){
 					discAmodifier.setDateFinDisc(nouvDisc.getDateFinDisc());
 				}
-				
+
 				listeDisc.set(positionDiscCherche, nouvDisc);
 				System.out.println("nouvelle liste : "+listeDisc.toString());
-				
+
 				JsonJava.convertirListeEnJson(listeDisc);
 				return nouvDisc;
 			}else {
@@ -328,60 +336,60 @@ public class Discipline {
 				return discAmodifier;
 			}
 		}
-		
+
 		return nouvDisc;
-		
+
 	}
-	
+
 	/*
 	private List<Employe> listeEmplSurDisc;
 	private List<Discipline> disciplines;
-	
+
 	 */
-	
+
 	public void ajouterEmplADisc(Employe empl) {
 		if(!Employe.estDanslaBaseDonneeEmpl(empl.getIdEmpl(), this.listeEmplSurDisc)) {
 			this.listeEmplSurDisc.add(empl);
 		}
 	}
-	
+
 	public void retirerEmplADisc(Employe empl) {
 		int positionAsupprimer = Employe.chercherPositionEmplTrouve(empl.getIdEmpl(), this.listeEmplSurDisc);
-	    if (positionAsupprimer != -1) {
-	    	this.getListeEmplSurDisc().remove(positionAsupprimer);
-	        //creerListeDiscJson(liste);
-	    }
+		if (positionAsupprimer != -1) {
+			this.getListeEmplSurDisc().remove(positionAsupprimer);
+			//creerListeDiscJson(liste);
+		}
 	}
-	
+
 	/*
 	public void ajouterTauxSuppEmpl(Taux taux) {
 		if(!Taux.estDanslaBaseDonneeEmpl(taux.getIdTx(), this.tauxSupp)) {
 			this.tauxSupp.add(taux);
 		}
 	}
-	
-	
+
+
 	public void ajouterPointEmpl(Pointage pointage) {
 		if(!Pointage.estDanslaBaseDonneeDisc(pointage.getIdPoint() , this.listePointage)) {
 		this.listePointage.add(pointage);
 		}
 	}
-	
+
 	public Employe DesactiverEmploye() {
 		this.setEstActif(false);
 		return this;
 	}
-	
-	
+
+
 	public void ajouterProjEmpl(Projet proj) {
 		if(!Projet.estDanslaBaseDonneeProj(proj.getIdProj() , this.listeProjetAtt)) {
 		this.listeProjetAtt.add(proj);
 		}
 	}
 	*/
-	
-	
-	
+
+
+
 	/*
 	public void ajouterEmplADisc(Employe empl) {
 		if(!Employe.estDanslaBaseDonneeDisc(empl.getIdEmpl() , this.listeDiscAttr)) {
@@ -389,14 +397,14 @@ public class Discipline {
 		}
 	}
 	*/
-	
+
 	/*
 	public Projet DesactiverProjet() {
 		this.setEstActif(false);
 		return this;
 	}
-	
-	
+
+
 	public void retirerDiscEmpl(Discipline disc) {
 		int positionAsupprimer = Discipline.chercherPositionDiscTrouve(disc.getIdDisc(), this.listeDiscAttr);
 	    if (positionAsupprimer != -1) {
@@ -414,7 +422,7 @@ public class Discipline {
 		}
 		return nbH;
 	}
-	
+
 	public double calculerAvancementProj() {
 		double nbH = calculerNbHeureTravProj();
 		double avancementProj = nbH/this.getNbHeureBudgProj();
@@ -426,12 +434,13 @@ public class Discipline {
 	public double calculerAvancementDisc() {
 		return this.nbHTrav/this.nbHBudget;
 	}
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 
 }
+

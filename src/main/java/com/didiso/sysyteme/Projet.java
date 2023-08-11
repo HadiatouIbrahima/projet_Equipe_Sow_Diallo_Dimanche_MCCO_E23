@@ -1,5 +1,8 @@
 package com.didiso.sysyteme;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -8,7 +11,7 @@ import Generique.JsonJava;
 
 
 public class Projet {
-	
+
 	private String idProj;
 	private String nomProj;
 	private String dateDebProj;
@@ -19,10 +22,10 @@ public class Projet {
 	private List<Discipline> disciplineProjet;
 	//private List<Projet> listeProjet;
 	/**
-	 * 
+	 *
 	 */
 	public Projet() {
-		super();
+		//super();
 	}
 	/**
 	 * @param idProj
@@ -38,6 +41,31 @@ public class Projet {
 		this.dateDebProj = dateDebProj;
 		this.dateFinProj = dateFinProj;
 		this.nbHeureBudgProj = nbHeureBudgProj;
+	}
+
+
+
+	/**
+	 * @param idProj
+	 * @param nomProj
+	 * @param dateDebProj
+	 * @param dateFinProj
+	 * @param nbHeureBudgProj
+	 * @param listeEmplProj
+	 * @param estActif
+	 * @param disciplineProjet
+	 */
+	public Projet(String idProj, String nomProj, String dateDebProj, String dateFinProj, int nbHeureBudgProj,
+				  List<Employe> listeEmplProj, boolean estActif, List<Discipline> disciplineProjet) {
+		super();
+		this.idProj = idProj;
+		this.nomProj = nomProj;
+		this.dateDebProj = dateDebProj;
+		this.dateFinProj = dateFinProj;
+		this.nbHeureBudgProj = nbHeureBudgProj;
+		this.listeEmplProj = listeEmplProj;
+		this.estActif = estActif;
+		this.disciplineProjet = disciplineProjet;
 	}
 	/**
 	 * @return the idProj
@@ -135,14 +163,21 @@ public class Projet {
 	public void setDisciplineProjet(List<Discipline> disciplineProjet) {
 		this.disciplineProjet = disciplineProjet;
 	}
-	@Override
-	public String toString() {
+
+
+	public String toString2() {
 		return "Projet [idProj=" + idProj + ", nomProj=" + nomProj + ", dateDebProj=" + dateDebProj + ", dateFinProj="
 				+ dateFinProj + ", nbHeureBudgProj=" + nbHeureBudgProj + ", listeEmplProj=" + listeEmplProj
 				+ ", estActif=" + estActif + ", disciplineProjet=" + disciplineProjet + "]";
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Projet [idProj=" + idProj + ", nomProj=" + nomProj + ", dateDebProj=" + dateDebProj + ", dateFinProj="
+				+ dateFinProj + ", nbHeureBudgProj=" + nbHeureBudgProj +/* ", listeEmplProj=" + listeEmplProj
+				+ ", estActif=" + estActif + ", disciplineProjet=" + disciplineProjet +*/ "]\n";
+	}
+
 	public static boolean estDanslaBaseDonneeProj(String idProjCherche, List<Projet> listeProj){
 		boolean trouve=false;
 		for (int i=0; i<listeProj.size(); i++) {
@@ -153,7 +188,7 @@ public class Projet {
 		}
 		return trouve;
 	}
-	
+
 	public static int chercherPositionProjTrouve(String idProjCherche, List<Projet> listeProj){
 		if(estDanslaBaseDonneeProj( idProjCherche, listeProj)) {
 			for (int i=0; i<listeProj.size(); i++) {
@@ -164,38 +199,38 @@ public class Projet {
 		}
 		return -1;
 	}
-	
-	
+
+
 	public static Projet  trouverProj(String idProjCherche, List<Projet> listeProj) {
-		Projet projet=new Projet();	
+		Projet projet=new Projet();
 		boolean arret=true;
 		for (int i=0; i<listeProj.size(); i++) {
-			System.out.println(listeProj.get(i).getIdProj());
-			System.out.println(idProjCherche);
+			//System.out.println(listeProj.get(i).getIdProj());
+			//System.out.println(idProjCherche);
 			if( (listeProj.get(i).getIdProj().equals(idProjCherche))&&(arret) ) {
 				arret=false;
 				projet=listeProj.get(i);
-				System.out.println(listeProj.get(i).toString());
-				
+				//System.out.println(listeProj.get(i).toString());
+
 			}else {
-				
+
 			}
 		}
 		return projet;
 
 	}
-	
-	
+
+
 	public void ajouterProj(List<Projet> listeProj) {
 		if(!estDanslaBaseDonneeProj(this.idProj, listeProj)) {
 			listeProj.add(this);
 			JsonJava.convertirListeEnJson(listeProj);
 		}else {
-			JOptionPane.showMessageDialog(null, "Ce projet est déjà dans la base de donnée", "Info", JOptionPane.CLOSED_OPTION);
+			JOptionPane.showMessageDialog(null, "Ce projet est dï¿½jï¿½ dans la base de donnï¿½e", "Info", JOptionPane.CLOSED_OPTION);
 		}
 	}
 
-	
+
 	public static void supprimerProjet(String idProjAsupprimer, List<Projet> listeProj) {
 		//int position=chercherPositionProjTrouve(idProjAsupprimer, listeProj);
 		if(estDanslaBaseDonneeProj(idProjAsupprimer, listeProj)) {
@@ -205,54 +240,54 @@ public class Projet {
 		}
 	}
 
-	
-	
+
+
 	public static Projet modifierProj(String idProjAmodifier, List<Projet> listeProj, Projet nouvProj) {
 		//int j=-1;
-		int i;
+		/*int i;
 		int positionProjCherche = 0;
 		//boolean trouve=false;
 		boolean conditionArret=true;
 		for (i=0; i<listeProj.size(); i++) {
 			if((listeProj.get(i).getIdProj()==idProjAmodifier)&&conditionArret) {
 				positionProjCherche=i;
-				System.out.println("Projet à modifier = "+listeProj.get(positionProjCherche));
+				//System.out.println("Projet ï¿½ modifier = "+listeProj.get(positionProjCherche));
 				//trouve=true;
 				conditionArret=false;
 			}
 
-		}
-		
+		}*/
+		int positionProjCherche = 0;
 		if(estDanslaBaseDonneeProj(idProjAmodifier, listeProj)) {
 			int positionProjAmodifier=chercherPositionProjTrouve(idProjAmodifier, listeProj);
 			Projet projAmodifier=listeProj.get(positionProjAmodifier);
-			if(projAmodifier.getIdProj().equals(nouvProj.getIdProj())){  
-				
+			if(projAmodifier.getIdProj().equals(nouvProj.getIdProj())){
+
 				if(!projAmodifier.getNomProj().equals(nouvProj.getNomProj())){
 					projAmodifier.setNomProj(nouvProj.getNomProj());
 				}
-				
+
 				if(!projAmodifier.getDateFinProj().equals(nouvProj.getDateFinProj())){
 					projAmodifier.setDateFinProj(nouvProj.getDateFinProj());
 				}
 				if(projAmodifier.getNbHeureBudgProj()!=(nouvProj.getNbHeureBudgProj())){
 					projAmodifier.setNbHeureBudgProj(nouvProj.getNbHeureBudgProj());
 				}
-				listeProj.set(positionProjCherche, nouvProj);
+				listeProj.set(positionProjAmodifier, nouvProj);
 				System.out.println("nouvelle liste : "+listeProj.toString());
-				
-				JsonJava.convertirListeEnJson(listeProj);
+
+				//JsonJava.convertirListeEnJson(listeProj);
 				return nouvProj;
 			}else {
 				System.out.println("Id inexistant");
 				return projAmodifier;
 			}
 		}
-		
+
 		return nouvProj;
-		
+
 	}
-	
+
 	/*
 	 * private List<Employe> listeEmplProj;
 	private boolean estActif;
@@ -263,54 +298,67 @@ public class Projet {
 			this.listeEmplProj.add(employe);
 		}
 	}
-	
+
 	public void retirerEmployeProj(Employe employe) {
 		//implementer chercherPositionEmplTrouve dans la classe Empl
-		  int positionAsupprimer = Employe.chercherPositionEmplTrouve(employe.getIdEmpl(), this.getListeEmplProj());
-		    
-		    if (positionAsupprimer != -1) {
-		    	this.getListeEmplProj().remove(positionAsupprimer);
-		        //creerListeEmplJson(liste);
-		    }
-	}
-	
-	public void ajouterDiscProjet(Discipline disc) {
-		if(!Discipline.estDanslaBaseDonneeDisc(disc.getIdDisc() , this.disciplineProjet)) {
-		this.disciplineProjet.add(disc);
+		int positionAsupprimer = Employe.chercherPositionEmplTrouve(employe.getIdEmpl(), this.getListeEmplProj());
+
+		if (positionAsupprimer != -1) {
+			this.getListeEmplProj().remove(positionAsupprimer);
+			//creerListeEmplJson(liste);
 		}
 	}
-	
+
+	public void ajouterDiscProjet(Discipline disc) {
+		if(!Discipline.estDanslaBaseDonneeDisc(disc.getIdDisc() , this.disciplineProjet)) {
+			this.disciplineProjet.add(disc);
+		}
+	}
+
 	public Projet DesactiverProjet() {
 		this.setEstActif(false);
 		return this;
 	}
-	
+
 	public void retirerDiscProjet(Discipline disc) {
 		int positionAsupprimer = Discipline.chercherPositionDiscTrouve(disc.getIdDisc(), this.getDisciplineProjet());
-	    if (positionAsupprimer != -1) {
-	    	this.getListeEmplProj().remove(positionAsupprimer);
-	        //creerListeDiscJson(liste);
-	    }
+		if (positionAsupprimer != -1) {
+			this.getListeEmplProj().remove(positionAsupprimer);
+			//creerListeDiscJson(liste);
+		}
 	}
-	
+
 	public double calculerNbHeureTravProj() {
 		double nbH =0;
 		for(Discipline disc : this.disciplineProjet) {
 			double nbDisc = disc.getNbHTrav();
-			//System.out.println("disc : " + nbDisc);
 			nbH = nbH + nbDisc;
-			//System.out.println("nbHT : " + nbH);
+
 		}
 		return nbH;
 	}
-	
+
 	public double calculerAvancementProj() {
 		double nbH = calculerNbHeureTravProj();
 		System.out.println("Total : "+ this.getNbHeureBudgProj());
-		double avancementProj = nbH/this.getNbHeureBudgProj();
+		double avancementProj = nbH/this.getNbHeureBudgProj()*100;
 		return avancementProj;
 	}
 
-}
+	public void executerCreationProj() {
+		//Bail bail=new Bail(idBail, numUnite, typeUnite, dateEntree, dateSortie, assurance, remisage, locataire, renouvelable, stationnement, montantLoyer);
+		List<Projet> listeProj = new ArrayList<>();
+		List<Projet> listeProjchargee = null;
 
+		try {
+			listeProjchargee=JsonJava.chargerBDDListe(listeProj, "com.didiso.sysyteme.Projet.json", Projet.class);
+		} catch (IOException | ParseException e1) {
+
+			e1.printStackTrace();
+		}
+
+		this.ajouterProj(listeProj);
+	}
+
+}
 
